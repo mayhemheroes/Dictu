@@ -1,7 +1,6 @@
-project: rnshah9/mayhem-dictu
+project: dictu
 target: dictu
-tests: null
 
 cmds:
-  - cmd: /repo/dictu @@
+  - cmd: /repo/dictu /test.du
     filepath: /test.du
