@@ -1,0 +1,14 @@
+FROM --platform=linux/amd64 ubuntu:20.04 as builder
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libcurl4-openssl-dev cmake
+
+COPY . /repo
+WORKDIR /repo
+RUN cmake -DCMAKE_BUILD_TYPE=Release -B ./build 
+RUN cmake --build ./build
+
+FROM ubuntu:20.04 as package
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libcurl4-openssl-dev
+COPY --from=builder /repo/dictu /

@@ -2,5 +2,4 @@ project: dictu
 target: dictu
 
 cmds:
-  - cmd: /repo/dictu /test.du
-    filepath: /test.du
+  - cmd: /dictu @@
